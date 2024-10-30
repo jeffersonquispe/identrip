@@ -2,15 +2,23 @@ import React, { useState, useEffect } from 'react';
 import placesData from '../data/places.json';
 import '../styles/common.css';
 
-const ReviewSystem = ({ placeId, currentUser, onReviewAdded }) => {
+const ReviewSystem = ({ placeId }) => {
     const [reviews, setReviews] = useState([]);
     const [newReview, setNewReview] = useState({
         rating: 5,
         comment: '',
         image: ''
     });
+    const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
+        // Cargar usuario actual
+        const storedUser = localStorage.getItem('currentUser');
+        if (storedUser) {
+            setCurrentUser(JSON.parse(storedUser));
+        }
+
+        // Cargar reviews
         loadReviews();
     }, [placeId]);
 
@@ -23,7 +31,7 @@ const ReviewSystem = ({ placeId, currentUser, onReviewAdded }) => {
     const handleSubmitReview = (e) => {
         e.preventDefault();
         if (!currentUser) {
-            alert('Please login to submit a review');
+            alert('Por favor, inicia sesión para dejar una reseña');
             return;
         }
 
@@ -31,13 +39,14 @@ const ReviewSystem = ({ placeId, currentUser, onReviewAdded }) => {
             id: Date.now(),
             userId: currentUser.id,
             username: currentUser.username,
+            userAvatar: currentUser.avatar,
             rating: newReview.rating,
             comment: newReview.comment,
-            image: newReview.image || 'default-review.jpg',
+            image: newReview.image,
             date: new Date().toISOString().split('T')[0]
         };
 
-        // Actualizar el JSON en localStorage
+        // Actualizar reviews en localStorage
         const storedPlaces = JSON.parse(localStorage.getItem('places')) || placesData.places;
         const updatedPlaces = storedPlaces.map(place => {
             if (place.id === placeId) {
@@ -51,32 +60,27 @@ const ReviewSystem = ({ placeId, currentUser, onReviewAdded }) => {
 
         localStorage.setItem('places', JSON.stringify(updatedPlaces));
         loadReviews();
-        
-        if (onReviewAdded) {
-            onReviewAdded(updatedPlaces);
-        }
-
         setNewReview({ rating: 5, comment: '', image: '' });
     };
 
     return (
-        <div className="review-section">
-            {currentUser && (
+        <div className="review-system">
+            {currentUser ? (
                 <form onSubmit={handleSubmitReview} className="review-form">
-                    <h3>Add Your Review</h3>
+                    <h3>Escribe una reseña</h3>
                     <div className="form-group">
-                        <label>Rating:</label>
+                        <label>Calificación:</label>
                         <select 
                             value={newReview.rating}
                             onChange={(e) => setNewReview({...newReview, rating: parseInt(e.target.value)})}
                         >
                             {[1,2,3,4,5].map(num => (
-                                <option key={num} value={num}>{num} stars</option>
+                                <option key={num} value={num}>{num} estrellas</option>
                             ))}
                         </select>
                     </div>
                     <div className="form-group">
-                        <label>Comment:</label>
+                        <label>Comentario:</label>
                         <textarea
                             value={newReview.comment}
                             onChange={(e) => setNewReview({...newReview, comment: e.target.value})}
@@ -85,32 +89,45 @@ const ReviewSystem = ({ placeId, currentUser, onReviewAdded }) => {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Image URL (optional):</label>
+                        <label>URL de imagen (opcional):</label>
                         <input
                             type="text"
                             value={newReview.image}
                             onChange={(e) => setNewReview({...newReview, image: e.target.value})}
-                            placeholder="Enter image URL"
+                            placeholder="https://ejemplo.com/imagen.jpg"
                         />
                     </div>
-                    <button type="submit" className="btn">Submit Review</button>
+                    <button type="submit" className="btn">Publicar Reseña</button>
                 </form>
+            ) : (
+                <div className="login-prompt">
+                    <p>Por favor, inicia sesión para dejar una reseña</p>
+                </div>
             )}
 
-            <div className="card-grid">
+            <div className="reviews-list">
                 {reviews.map(review => (
-                    <div key={review.id} className="card">
-                        {review.image && (
-                            <img src={review.image} alt="Review" onError={(e) => {
-                                e.target.src = 'default-review.jpg';
-                            }} />
-                        )}
-                        <div className="card-content">
-                            <h4>{review.username}</h4>
-                            <div className="rating-stars">{'⭐'.repeat(review.rating)}</div>
-                            <p>{review.comment}</p>
-                            <small>Posted on: {review.date}</small>
+                    <div key={review.id} className="review-card">
+                        <div className="review-header">
+                            <img 
+                                src={review.userAvatar} 
+                                alt={review.username} 
+                                className="user-avatar"
+                            />
+                            <div className="review-info">
+                                <h4>{review.username}</h4>
+                                <div className="rating">{'⭐'.repeat(review.rating)}</div>
+                            </div>
                         </div>
+                        {review.image && (
+                            <img 
+                                src={review.image} 
+                                alt="Review" 
+                                className="review-image"
+                            />
+                        )}
+                        <p className="review-comment">{review.comment}</p>
+                        <small className="review-date">Publicado el: {review.date}</small>
                     </div>
                 ))}
             </div>

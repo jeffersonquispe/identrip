@@ -23,16 +23,16 @@ const Auth = ({ onLogin }) => {
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 onLogin(user);
             } else {
-                alert('Invalid credentials');
+                alert('Credenciales inválidas');
             }
         } else {
             // Register
             const newUser = {
                 id: String(Date.now()),
-                ...formData
+                ...formData,
+                avatar: `https://ui-avatars.com/api/?name=${formData.name.replace(' ', '+')}`
             };
             
-            // En un caso real, esto se haría en el backend
             const updatedUsers = [...usersData.users, newUser];
             localStorage.setItem('users', JSON.stringify(updatedUsers));
             localStorage.setItem('currentUser', JSON.stringify(newUser));
@@ -42,10 +42,10 @@ const Auth = ({ onLogin }) => {
 
     return (
         <div className="auth-container">
-            <h2>{isLogin ? 'Login' : 'Register'}</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Username:</label>
+            <h2>{isLogin ? 'Iniciar Sesión' : 'Registrarse'}</h2>
+            <form onSubmit={handleSubmit} className="auth-form">
+                <div className="form-group">
+                    <label>Usuario:</label>
                     <input
                         type="text"
                         value={formData.username}
@@ -53,8 +53,8 @@ const Auth = ({ onLogin }) => {
                         required
                     />
                 </div>
-                <div>
-                    <label>Password:</label>
+                <div className="form-group">
+                    <label>Contraseña:</label>
                     <input
                         type="password"
                         value={formData.password}
@@ -64,7 +64,7 @@ const Auth = ({ onLogin }) => {
                 </div>
                 {!isLogin && (
                     <>
-                        <div>
+                        <div className="form-group">
                             <label>Email:</label>
                             <input
                                 type="email"
@@ -73,8 +73,8 @@ const Auth = ({ onLogin }) => {
                                 required
                             />
                         </div>
-                        <div>
-                            <label>Name:</label>
+                        <div className="form-group">
+                            <label>Nombre:</label>
                             <input
                                 type="text"
                                 value={formData.name}
@@ -84,10 +84,15 @@ const Auth = ({ onLogin }) => {
                         </div>
                     </>
                 )}
-                <button type="submit">{isLogin ? 'Login' : 'Register'}</button>
+                <button type="submit" className="btn">
+                    {isLogin ? 'Iniciar Sesión' : 'Registrarse'}
+                </button>
             </form>
-            <button onClick={() => setIsLogin(!isLogin)}>
-                {isLogin ? 'Need an account? Register' : 'Already have an account? Login'}
+            <button 
+                onClick={() => setIsLogin(!isLogin)} 
+                className="btn-link"
+            >
+                {isLogin ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión'}
             </button>
         </div>
     );
