@@ -2,18 +2,53 @@
   "places": [
     {
       "id": 1,
-      "name": "Restaurant A",
-      "description": "Italian cuisine",
-      "image": "restaurant-a.jpg",
-      "reviews": [
-        {
-          "id": 1,
-          "userId": "1",
-          "rating": 4,
-          "comment": "Great food!",
-          "date": "2024-03-20"
-        }
-      ]
+      "name": "Cicciolina",
+      "description": "Restaurante italiano-andino ubicado en el corazón del centro histórico de Cusco. Famoso por sus pastas artesanales y platos fusión.",
+      "address": "Calle Triunfo 393, 2do Piso, Cusco",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/16/37/c9/f3/cicciolina.jpg",
+      "category": "Fusión Italiano-Andino",
+      "priceRange": "$$$$",
+      "reviews": []
+    },
+    {
+      "id": 2,
+      "name": "Pachapapa",
+      "description": "Restaurante tradicional cusqueño ubicado en San Blas. Especializado en comida típica y horno de piedra. Famoso por su cuy al horno y alpaca a la parrilla.",
+      "address": "Plaza San Blas 120, Cusco",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0d/5c/ec/67/pachapapa.jpg",
+      "category": "Cocina Tradicional Cusqueña",
+      "priceRange": "$$$",
+      "reviews": []
+    },
+    {
+      "id": 3,
+      "name": "Chicha por Gastón Acurio",
+      "description": "Restaurante del reconocido chef Gastón Acurio, ofrece una interpretación moderna de la cocina peruana tradicional con ingredientes locales.",
+      "address": "Plaza Regocijo 261, 2do Piso, Cusco",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0e/31/8e/f0/chicha-por-gaston-acurio.jpg",
+      "category": "Alta Cocina Peruana",
+      "priceRange": "$$$$",
+      "reviews": []
+    },
+    {
+      "id": 4,
+      "name": "Green Point",
+      "description": "Primer restaurante vegano de Cusco. Ofrece platos saludables y orgánicos con influencias peruanas e internacionales.",
+      "address": "Carmen Bajo 235, San Blas, Cusco",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/10/88/e2/c3/green-point.jpg",
+      "category": "Vegano/Vegetariano",
+      "priceRange": "$$",
+      "reviews": []
+    },
+    {
+      "id": 5,
+      "name": "Morena Peruvian Kitchen",
+      "description": "Cocina peruana contemporánea con énfasis en ingredientes locales y técnicas modernas. Famoso por sus ceviches y platos de quinua.",
+      "address": "Calle Plateros 348, Cusco",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/1a/03/51/a3/morena-peruvian-kitchen.jpg",
+      "category": "Cocina Peruana Moderna",
+      "priceRange": "$$$",
+      "reviews": []
     }
   ]
 } 
