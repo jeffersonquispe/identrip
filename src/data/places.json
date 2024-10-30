@@ -1,0 +1,19 @@
+{
+  "places": [
+    {
+      "id": 1,
+      "name": "Restaurant A",
+      "description": "Italian cuisine",
+      "image": "restaurant-a.jpg",
+      "reviews": [
+        {
+          "id": 1,
+          "userId": "1",
+          "rating": 4,
+          "comment": "Great food!",
+          "date": "2024-03-20"
+        }
+      ]
+    }
+  ]
+} 
