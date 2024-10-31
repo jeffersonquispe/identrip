@@ -22,26 +22,22 @@ const CONTRACT_NAME = "hello-world";
 
 // my contract and address data
 //const network = new StacksNetwork();
-const contractAddress = STACKS_ADDRESS as string;
-const contractName = CONTRACT_NAME as string;
+const contractAddress = STACKS_ADDRESS;
+const contractName = CONTRACT_NAME;
 
-export type ContractAddEvent = {
-    //ownerPrincipal: string;
-    //eventUUID: string;
-    //priceInStx: string;
-    rating: number;
-    comment: string;
-    endDateTime: Date;
-
-};
+/**
+ * @typedef {Object} ContractAddEvent
+ * @property {number} rating
+ * @property {string} comment
+ * @property {Date} endDateTime
+ */
 export function contractAddEvent(
-    { rating, comment, endDateTime }: ContractAddEvent,
-): Promise<any> {
+    { rating, comment, endDateTime }) {
     return new Promise((resolve, reject) => {
         console.log({ rating, comment, endDateTime });
         const commentAscii = stringAsciiCV(comment);
         const rating_val = uintCV(rating);
-        const expiry = uintCV((endDateTime as Date).getTime() / 1000 | 0);
+        const expiry = uintCV(Math.floor(endDateTime.getTime() / 1000));
 
         console.log([commentAscii, rating_val, expiry]);
 
@@ -70,13 +66,11 @@ export function contractAddEvent(
     });
 }
 
-export function contractUpdateEvent(
-    { rating, comment, endDateTime }: ContractAddEvent,
-): Promise<any> {
+export function contractUpdateEvent({ rating, comment, endDateTime }) {
     return new Promise((resolve, reject) => {
         const commentAscii = stringAsciiCV(comment);
         const rating_val = uintCV(rating);
-        const expiry = uintCV((endDateTime as Date).getTime() / 1000 | 0);
+        const expiry = uintCV(Math.floor(endDateTime.getTime() / 1000));
 
         openContractCall({
             contractAddress,
@@ -95,7 +89,7 @@ export function contractUpdateEvent(
     });
 }
 
-function getEvent(eventUUID: string) {
+function getEvent(eventUUID) {
     const eventId = stringAsciiCV(eventUUID);
 
     const options = {
@@ -116,57 +110,19 @@ function getEvent(eventUUID: string) {
         });
 }
 
-export type ContractBuyTicket = {
-    ownerPrincipal: string;
-    eventUUID: string;
-    ticketId: string;
-    price: string;
-};
+/**
+ * @typedef {Object} ContractBuyTicket
+ * @property {string} ownerPrincipal
+ * @property {string} eventUUID
+ * @property {string} ticketId
+ * @property {string} price
+ */
 
-/*function buyTicket({ ownerPrincipal, eventUUID, ticketId, price }: ContractBuyTicket) {
-
-    const priceInNumber: number = Number(`${price}000`);
-
-
-
-    if (priceInNumber) {
-        openSTXTransfer({
-            network: new StacksTestnet(),
-
-            recipient: ownerPrincipal, // which address we are sending to
-            amount: priceInNumber.toString(), // tokens, denominated in micro-STX
-            anchorMode: AnchorMode.OnChainOnly,
-
-            onFinish: (response) => {
-                return response;
-            },
-            onCancel: () => console.log('User canceled'),
-        });
-    }
-
-    openContractCall({
-        network,
-        contractAddress,
-        contractName,
-        functionName: "buy-ticket",
-        functionArgs: [eventUUID, ticketId],
-        onFinish: (data) => {
-            console.log("onFinish:", data);
-        },
-        onCancel: () => {
-            console.log("onCancel:", "Transaction was canceled");
-        },
-    });
-} */
-
-export function buyTicket(
-    { ownerPrincipal, eventUUID, ticketId, price }: ContractBuyTicket,
-): Promise<any> {
+export function buyTicket({ ownerPrincipal, eventUUID, ticketId, price }) {
     return new Promise((resolve, reject) => {
-        const priceInNumber: number = Number(`${price}000000`);
-
-        let payTxId: string = ''
-
+        const priceInNumber = Number(`${price}000000`);
+        let payTxId = '';
+        
         const eventId = stringAsciiCV(eventUUID)
         const ticketIdToAscii = stringAsciiCV(ticketId)
 
@@ -177,7 +133,7 @@ export function buyTicket(
                 amount: `${priceInNumber}`,
                 anchorMode: AnchorMode.Any,
                 onFinish: (response) => {
-                    payTxId = response.txId as string;
+                    payTxId = response.txId;
                     console.log("Transferencia completada:", response);
                 },
                 onCancel: () => {
@@ -186,7 +142,6 @@ export function buyTicket(
                 },
             });
         }
-
 
         openContractCall({
             network: STACKS_TESTNET,
