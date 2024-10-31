@@ -1,12 +1,22 @@
 {
   "users": [
     {
-      "id": "1",
-      "username": "usuario_demo",
-      "password": "password123",
-      "email": "demo@example.com",
-      "name": "Usuario Demo",
-      "avatar": "https://ui-avatars.com/api/?name=Usuario+Demo"
+      "id": 1,
+      "name": "Ana García",
+      "email": "ana@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=1"
+    },
+    {
+      "id": 2,
+      "name": "Juan Pérez",
+      "email": "juan@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=2"
+    },
+    {
+      "id": 3,
+      "name": "María López",
+      "email": "maria@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=3"
     }
   ]
 } 

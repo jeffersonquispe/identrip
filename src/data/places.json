@@ -3,92 +3,85 @@
     {
       "id": 1,
       "name": "Cicciolina",
-      "slug": "cicciolina-cusco",
-      "description": "Restaurante italiano-andino ubicado en el corazón del centro histórico de Cusco. Famoso por sus pastas artesanales y platos fusión.",
-      "longDescription": "Ubicado en una casona colonial del siglo XVIII, Cicciolina ofrece una experiencia gastronómica única que combina la tradición italiana con ingredientes andinos. Su ambiente acogedor en el segundo piso incluye un bar de tapas y una cava de vinos selectos. El restaurante es especialmente conocido por sus pastas hechas a mano, risottos y su selección de antipasti.",
-      "address": "Calle Triunfo 393, 2do Piso, Cusco",
-      "image": "https://media-cdn.tripadvisor.com/media/photo-s/16/37/c9/f3/cicciolina.jpg",
-      "gallery": [
-        "https://media-cdn.tripadvisor.com/media/photo-s/16/37/c9/f3/cicciolina-1.jpg",
-        "https://media-cdn.tripadvisor.com/media/photo-s/16/37/c9/f3/cicciolina-2.jpg"
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/16/41/ce/c7/cicciolina.jpg",
+      "rating": 4.8,
+      "reviews": [
+        {
+          "id": 1,
+          "userId": 1,
+          "rating": 5,
+          "comment": "¡Excelente comida y servicio! Los platos son una obra de arte.",
+          "date": "2024-03-15T18:00:00Z",
+          "user": {
+            "id": 1,
+            "name": "Ana García",
+            "avatar": "https://i.pravatar.cc/150?img=1"
+          }
+        }
       ],
-      "category": "Fusión Italiano-Andino",
-      "priceRange": "$$$$",
-      "specialties": ["Pasta artesanal", "Risotto", "Antipasti"],
-      "schedule": "12:00 - 22:00",
-      "reviews": []
+      "category": "Mediterráneo y Andino",
+      "description": "Tapas y platos principales con un toque bohemio en el corazón de Cusco.",
+      "address": "C. Palacio 110, Cusco 08002"
     },
     {
       "id": 2,
-      "name": "Pachapapa",
-      "slug": "pachapapa-cusco",
-      "description": "Restaurante tradicional cusqueño ubicado en San Blas. Especializado en comida típica y horno de piedra.",
-      "longDescription": "Pachapapa se encuentra en el corazón del barrio artístico de San Blas, en un hermoso patio colonial. El restaurante es famoso por sus platos tradicionales cusqueños preparados en horno de piedra, incluyendo el emblemático cuy al horno y la alpaca a la parrilla. El ambiente rústico y acogedor complementa perfectamente la experiencia gastronómica auténtica.",
-      "address": "Plaza San Blas 120, Cusco",
-      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0d/5c/ec/67/pachapapa.jpg",
-      "gallery": [
-        "https://media-cdn.tripadvisor.com/media/photo-s/0d/5c/ec/67/pachapapa-1.jpg",
-        "https://media-cdn.tripadvisor.com/media/photo-s/0d/5c/ec/67/pachapapa-2.jpg"
-      ],
-      "category": "Cocina Tradicional Cusqueña",
-      "priceRange": "$$$",
-      "specialties": ["Cuy al horno", "Alpaca a la parrilla", "Sopas tradicionales"],
-      "schedule": "11:30 - 22:00",
-      "reviews": []
+      "name": "Morena Peruvian Kitchen",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/1a/b8/46/6d/cusco-gastronomy.jpg",
+      "rating": 4.7,
+      "reviews": [],
+      "category": "Peruano Contemporáneo",
+      "description": "Cocina peruana moderna con ingredientes locales y técnicas contemporáneas.",
+      "address": "Procuradores 320, Cusco 08002"
     },
     {
       "id": 3,
-      "name": "Chicha por Gastón Acurio",
-      "slug": "chicha-gaston-acurio-cusco",
-      "description": "Restaurante del reconocido chef Gastón Acurio, ofrece una interpretación moderna de la cocina peruana tradicional.",
-      "longDescription": "Chicha, creación del internacionalmente reconocido chef Gastón Acurio, representa la evolución de la cocina peruana. El restaurante combina técnicas modernas con ingredientes locales tradicionales, creando una experiencia culinaria única. Su ubicación privilegiada ofrece vistas espectaculares de la Plaza Regocijo.",
-      "address": "Plaza Regocijo 261, 2do Piso, Cusco",
-      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0e/31/8e/f0/chicha-por-gaston-acurio.jpg",
-      "gallery": [
-        "https://media-cdn.tripadvisor.com/media/photo-s/0e/31/8e/f0/chicha-1.jpg",
-        "https://media-cdn.tripadvisor.com/media/photo-s/0e/31/8e/f0/chicha-2.jpg"
-      ],
-      "category": "Alta Cocina Peruana",
-      "priceRange": "$$$$",
-      "specialties": ["Lomo saltado", "Ceviche de trucha", "Quinotto"],
-      "schedule": "12:30 - 22:30",
-      "reviews": []
+      "name": "Green Point",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/11/27/93/4c/green-point.jpg",
+      "rating": 4.9,
+      "reviews": [],
+      "category": "Vegetariano/Vegano",
+      "description": "Restaurante vegano que ofrece platos creativos y saludables con ingredientes orgánicos.",
+      "address": "Carmen Bajo 235, San Blas, Cusco"
     },
     {
       "id": 4,
-      "name": "Green Point",
-      "slug": "green-point-cusco",
-      "description": "Primer restaurante vegano de Cusco. Ofrece platos saludables y orgánicos con influencias peruanas e internacionales.",
-      "longDescription": "Green Point es pionero en la cocina vegana de Cusco, ofreciendo una alternativa saludable y consciente. El restaurante utiliza ingredientes orgánicos locales para crear platos innovadores que demuestran que la comida vegana puede ser tanto nutritiva como deliciosa. Incluye una tienda de productos orgánicos y clases de cocina.",
-      "address": "Carmen Bajo 235, San Blas, Cusco",
-      "image": "https://media-cdn.tripadvisor.com/media/photo-s/10/88/e2/c3/green-point.jpg",
-      "gallery": [
-        "https://media-cdn.tripadvisor.com/media/photo-s/10/88/e2/c3/green-point-1.jpg",
-        "https://media-cdn.tripadvisor.com/media/photo-s/10/88/e2/c3/green-point-2.jpg"
-      ],
-      "category": "Vegano/Vegetariano",
-      "priceRange": "$$",
-      "specialties": ["Bowl de quinua", "Hamburguesa vegana", "Lasaña de verduras"],
-      "schedule": "08:00 - 21:00",
-      "reviews": []
+      "name": "Pachapapa",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/03/eb/cf/c0/pachapapa.jpg",
+      "rating": 4.6,
+      "reviews": [],
+      "category": "Cocina Tradicional Cusqueña",
+      "description": "Auténtica cocina cusqueña en un ambiente colonial con horno de barro.",
+      "address": "Plaza San Blas 120, Cusco"
     },
     {
       "id": 5,
-      "name": "Morena Peruvian Kitchen",
-      "slug": "morena-peruvian-kitchen-cusco",
-      "description": "Cocina peruana contemporánea con énfasis en ingredientes locales y técnicas modernas.",
-      "longDescription": "Morena Peruvian Kitchen es un restaurante de alta cocina peruana que combina la tradición culinaria con ingredientes locales y técnicas modernas. El restaurante es famoso por sus ceviches y platos de quinua, así como por su ambiente acogedor y servicio de alta calidad.",
-      "address": "Calle Plateros 348, Cusco",
-      "image": "https://media-cdn.tripadvisor.com/media/photo-s/1a/03/51/a3/morena-peruvian-kitchen.jpg",
-      "gallery": [
-        "https://media-cdn.tripadvisor.com/media/photo-s/1a/03/51/a3/morena-peruvian-kitchen-1.jpg",
-        "https://media-cdn.tripadvisor.com/media/photo-s/1a/03/51/a3/morena-peruvian-kitchen-2.jpg"
-      ],
-      "category": "Cocina Peruana Moderna",
-      "priceRange": "$$$",
-      "specialties": ["Ceviche de trucha", "Quinotto", "Lomo saltado"],
-      "schedule": "12:00 - 22:00",
-      "reviews": []
+      "name": "Limo Nikkei Restaurant & Pisco Bar",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/13/54/c0/9c/limo-nikkei.jpg",
+      "rating": 4.8,
+      "reviews": [],
+      "category": "Nikkei/Fusión",
+      "description": "Fusión de cocina peruana y japonesa con vista a la Plaza de Armas.",
+      "address": "Portal de Carnes 236, Plaza de Armas, Cusco"
+    },
+    {
+      "id": 6,
+      "name": "Marcelo Batata Cooking Classes",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0e/32/45/8d/marcelo-batata.jpg",
+      "rating": 4.9,
+      "reviews": [],
+      "category": "Escuela de Cocina/Restaurante",
+      "description": "Experiencia culinaria única con clases de cocina y degustación de platos peruanos.",
+      "address": "Calle Palacio 121, Cusco"
+    },
+    {
+      "id": 7,
+      "name": "Organika",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/1a/12/58/89/organika.jpg",
+      "rating": 4.7,
+      "reviews": [],
+      "category": "Orgánico/Saludable",
+      "description": "Restaurante orgánico con productos locales y platos saludables innovadores.",
+      "address": "Calle Resbalosa 410, Cusco"
     }
   ]
 } 

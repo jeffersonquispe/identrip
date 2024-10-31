@@ -1,14 +1,18 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, InputBase, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, InputBase, Box, styled } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { styled, alpha } from '@mui/material/styles';
+
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  background: 'linear-gradient(90deg, #121212 0%, #1a1a1a 100%)',
+  boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+}));
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: 'rgba(255, 255, 255, 0.05)',
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -17,6 +21,7 @@ const Search = styled('div')(({ theme }) => ({
     marginLeft: theme.spacing(3),
     width: 'auto',
   },
+  transition: 'all 0.3s ease',
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -27,10 +32,12 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  color: theme.palette.primary.main,
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
+  width: '100%',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -44,28 +51,33 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Header = () => {
   return (
-    <AppBar position="static">
+    <StyledAppBar position="static">
       <Toolbar>
         <Typography
           variant="h6"
           noWrap
           component="div"
-          sx={{ display: { xs: 'none', sm: 'block' } }}
+          sx={{
+            flexGrow: 1,
+            background: 'linear-gradient(45deg, #00a0ff, #ff4081)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            fontWeight: 'bold',
+          }}
         >
-          Identrip
+          Iden-Trip
         </Typography>
-        <Box sx={{ flexGrow: 1 }} />
         <Search>
           <SearchIconWrapper>
             <SearchIcon />
           </SearchIconWrapper>
           <StyledInputBase
-            placeholder="Buscar locales..."
+            placeholder="Buscar lugares..."
             inputProps={{ 'aria-label': 'buscar' }}
           />
         </Search>
       </Toolbar>
-    </AppBar>
+    </StyledAppBar>
   );
 };
 
